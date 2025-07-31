@@ -1,37 +1,223 @@
-// routes/game.js - Játék útvonalak
 const express = require('express');
 const router = express.Router();
-const GameController = require('../controllers/gameController');
 
-// Middleware
-const { validateUserId, rateLimitStrict } = require('../middleware/auth');
-const { validateGameStart, validateModelUnlock, validateChallengeComplete } = require('../middleware/validation');
+// GET /api/game/state/:userId
+router.get('/state/:userId', (req, res) => {
+  try {
+    const { userId } = req.params;
+    const gameState = global.gameStates.get(userId);
+    
+    if (!gameState) {
+      return res.status(404).json({
+        success: false,
+        error: 'Játékállapot nem található'
+      });
+    }
 
-// Új játék indítása
-router.post('/session/start', rateLimitStrict, validateGameStart, GameController.startNewGame);
+    res.json({
+      success: true,
+      message: 'Játékállapot lekérve',
+      data: gameState
+    });
 
-// Játékállapot lekérése
-router.get('/session/:userId', validateUserId, GameController.getGameState);
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      error: 'Játékállapot hiba',
+      message: error.message
+    });
+  }
+});
 
-// Játékállapot mentése
-router.put('/session/:userId', validateUserId, GameController.saveGameState);
+// POST /api/game/unlock-model
+router.post('/unlock-model', (req, res) => {
+  try {
+    const { userId, modelType } = req.body;
 
-// Játék újraindítása
-router.post('/session/:userId/reset', validateUserId, GameController.resetGame);
+    if (!userId || !modelType) {
+      return res.status(400).json({
+        success: false,
+        error: 'Hiányzó adatok',
+        message: 'userId és modelType szükséges'
+      });
+    }
 
-// Modell feloldása
-router.post('/models/unlock', rateLimitStrict, validateModelUnlock, GameController.unlockModel);
+    const gameState = global.gameStates.get(userId);
+    if (!gameState) {
+      return res.status(404).json({
+        success: false,
+        error: 'Játékállapot nem található'
+      });
+    }
 
-// Kihívás teljesítése
-router.post('/challenges/complete', rateLimitStrict, validateChallengeComplete, GameController.completeChallenge);
+    // Check if already unlocked
+    if (gameState.unlockedModels.includes(modelType)) {
+      return res.status(400).json({
+        success: false,
+        error: 'Modell már feloldva'
+      });
+    }
 
-// Játék fázis frissítése
-router.patch('/session/:userId/phase', validateUserId, GameController.updateGamePhase);
+    // Check cost
+    const cost = 15;
+    if (gameState.credits < cost) {
+      return res.status(400).json({
+        success: false,
+        error: 'Nincs elég kredit',
+        message: `${cost} TK szükséges`
+      });
+    }
 
-// Játék statisztikák
-router.get('/session/:userId/statistics', validateUserId, GameController.getGameStatistics);
+    // Unlock model
+    gameState.credits -= cost;
+    gameState.unlockedModels.push(modelType);
+    gameState.score += 10;
+    gameState.updatedAt = new Date().toISOString();
 
-// Rangsor
-router.get('/leaderboard', GameController.getLeaderboard);
+    // Update phase
+    if (gameState.unlockedModels.length === 1) {
+      gameState.currentPhase = 'classification-unlocked';
+    } else if (gameState.unlockedModels.length === 2) {
+      gameState.currentPhase = 'both-models-unlocked';
+    }
+
+    global.gameStates.set(userId, gameState);
+
+    console.log(`🔓 ${modelType} modell feloldva: ${global.users.get(userId)?.name}`);
+
+    res.json({
+      success: true,
+      message: 'Modell feloldva',
+      data: {
+        modelType,
+        remainingCredits: gameState.credits,
+        unlockedModels: gameState.unlockedModels,
+        currentPhase: gameState.currentPhase,
+        newScore: gameState.score
+      }
+    });
+
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      error: 'Modell feloldási hiba',
+      message: error.message
+    });
+  }
+});
+
+// POST /api/game/complete-challenge
+router.post('/complete-challenge', (req, res) => {
+  try {
+    const { userId, challengeId } = req.body;
+
+    if (!userId || challengeId === undefined) {
+      return res.status(400).json({
+        success: false,
+        error: 'Hiányzó adatok'
+      });
+    }
+
+    const gameState = global.gameStates.get(userId);
+    if (!gameState) {
+      return res.status(404).json({
+        success: false,
+        error: 'Játékállapot nem található'
+      });
+    }
+
+    // Check if already completed
+    if (gameState.completedChallenges.includes(challengeId)) {
+      return res.status(400).json({
+        success: false,
+        error: 'Kihívás már teljesítve'
+      });
+    }
+
+    const cost = 10;
+    const reward = 5;
+
+    if (gameState.credits < cost) {
+      return res.status(400).json({
+        success: false,
+        error: 'Nincs elég kredit'
+      });
+    }
+
+    // Complete challenge
+    gameState.credits = gameState.credits - cost + reward;
+    gameState.completedChallenges.push(challengeId);
+    gameState.score += 15;
+    gameState.updatedAt = new Date().toISOString();
+
+    // Check completion
+    if (gameState.completedChallenges.length === 4) {
+      gameState.currentPhase = 'completed';
+      gameState.score += 50;
+    }
+
+    global.gameStates.set(userId, gameState);
+
+    console.log(`🎯 Kihívás teljesítve (#${challengeId}): ${global.users.get(userId)?.name}`);
+
+    res.json({
+      success: true,
+      message: 'Kihívás teljesítve',
+      data: {
+        challengeId,
+        remainingCredits: gameState.credits,
+        completedChallenges: gameState.completedChallenges,
+        currentPhase: gameState.currentPhase,
+        newScore: gameState.score
+      }
+    });
+
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      error: 'Kihívás hiba',
+      message: error.message
+    });
+  }
+});
+
+// GET /api/game/leaderboard
+router.get('/leaderboard', (req, res) => {
+  try {
+    const leaderboard = Array.from(global.gameStates.values())
+      .map(gameState => {
+        const user = global.users.get(gameState.userId);
+        return {
+          userId: gameState.userId,
+          name: user?.name || 'Unknown',
+          teamName: user?.teamName || 'Unknown Team',
+          score: gameState.score,
+          credits: gameState.credits,
+          modelsUnlocked: gameState.unlockedModels.length,
+          challengesCompleted: gameState.completedChallenges.length,
+          currentPhase: gameState.currentPhase,
+          createdAt: gameState.createdAt
+        };
+      })
+      .sort((a, b) => {
+        if (b.score !== a.score) return b.score - a.score;
+        return new Date(a.createdAt) - new Date(b.createdAt);
+      });
+
+    res.json({
+      success: true,
+      message: 'Rangsor lekérve',
+      data: leaderboard,
+      totalPlayers: leaderboard.length
+    });
+
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      error: 'Rangsor hiba',
+      message: error.message
+    });
+  }
+});
 
 module.exports = router;

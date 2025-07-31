@@ -1,21 +1,23 @@
-// middleware/auth.js - Authentication Middleware
-const verifySession = (req, res, next) => {
-  const sessionId = req.header('x-session-id');
+// Simple API key validation
+const validateApiKey = (req, res, next) => {
+  const apiKey = req.headers['x-api-key'];
   
-  if (!sessionId || !global.sessions?.has(sessionId)) {
+  // Development mode - allow all
+  if (process.env.NODE_ENV === 'development') {
+    return next();
+  }
+  
+  if (!apiKey || apiKey !== process.env.API_KEY) {
     return res.status(401).json({
       success: false,
-      error: 'Érvénytelen session',
-      message: 'Session lejárt vagy nem létezik'
+      error: 'Unauthorized',
+      message: 'API kulcs szükséges'
     });
   }
-
-  const session = global.sessions.get(sessionId);
-  req.session = session;
-  req.user = session.user;
+  
   next();
 };
 
 module.exports = {
-  verifySession
+  validateApiKey
 };
