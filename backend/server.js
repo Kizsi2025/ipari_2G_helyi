@@ -8,12 +8,12 @@ const rateLimit = require('express-rate-limit');
 require('dotenv').config();
 
 // Import routes
-const apiRoutes = require('./routes/api');
-const userRoutes = require('./routes/users');
-const gameRoutes = require('./routes/game');
+const apiRoutes  = require('./src/routes/api');
+const userRoutes = require('./src/routes/users');
+const gameRoutes = require('./src/routes/game');
 
 // Import middleware
-const errorHandler = require('./middleware/errorHandler');
+const errorHandler = require('./src/middleware/errorHandler');
 
 // Import utils
 const { db } = require('./utils/database');
