@@ -16,7 +16,7 @@ const gameRoutes = require('./src/routes/game');
 const errorHandler = require('./src/middleware/errorHandler');
 
 // Import utils
-const { db } = require('./utils/database');
+const { db } = require('./src/utils/database');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
