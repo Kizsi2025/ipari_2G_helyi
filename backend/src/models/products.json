@@ -1,0 +1,262 @@
+[
+  {
+    "id": 1,
+    "weight": 150,
+    "color": "Piros",
+    "size": "Kicsi",
+    "category": "Megfelelő",
+    "package": 1,
+    "metadata": {
+      "source": "pdf_import",
+      "dataset": "future_tech_labeled_data",
+      "qualityScore": 75
+    }
+  },
+  {
+    "id": 2,
+    "weight": 200,
+    "color": "Kék",
+    "size": "Nagy",
+    "category": "Selejt",
+    "package": 1,
+    "metadata": {
+      "source": "pdf_import",
+      "dataset": "future_tech_labeled_data",
+      "qualityScore": 35
+    }
+  },
+  {
+    "id": 3,
+    "weight": 180,
+    "color": "Zöld",
+    "size": "Közepes",
+    "category": "Megfelelő",
+    "package": 1,
+    "metadata": {
+      "source": "pdf_import",
+      "dataset": "future_tech_labeled_data",
+      "qualityScore": 70
+    }
+  },
+  {
+    "id": 4,
+    "weight": 220,
+    "color": "Piros",
+    "size": "Nagy",
+    "category": "Selejt",
+    "package": 1,
+    "metadata": {
+      "source": "pdf_import",
+      "dataset": "future_tech_labeled_data",
+      "qualityScore": 25
+    }
+  },
+  {
+    "id": 5,
+    "weight": 160,
+    "color": "Kék",
+    "size": "Kicsi",
+    "category": "Megfelelő",
+    "package": 1,
+    "metadata": {
+      "source": "pdf_import",
+      "dataset": "future_tech_labeled_data",
+      "qualityScore": 85
+    }
+  },
+  {
+    "id": 6,
+    "weight": 300,
+    "color": "Zöld",
+    "size": "Nagy",
+    "category": "Selejt",
+    "package": 2,
+    "metadata": {
+      "source": "pdf_import",
+      "dataset": "future_tech_labeled_data",
+      "qualityScore": 20
+    }
+  },
+  {
+    "id": 7,
+    "weight": 250,
+    "color": "Piros",
+    "size": "Közepes",
+    "category": "Megfelelő",
+    "package": 2,
+    "metadata": {
+      "source": "pdf_import",
+      "dataset": "future_tech_labeled_data",
+      "qualityScore": 55
+    }
+  },
+  {
+    "id": 8,
+    "weight": 270,
+    "color": "Kék",
+    "size": "Kicsi",
+    "category": "Selejt",
+    "package": 2,
+    "metadata": {
+      "source": "pdf_import",
+      "dataset": "future_tech_labeled_data",
+      "qualityScore": 30
+    }
+  },
+  {
+    "id": 9,
+    "weight": 290,
+    "color": "Zöld",
+    "size": "Nagy",
+    "category": "Megfelelő",
+    "package": 2,
+    "metadata": {
+      "source": "pdf_import",
+      "dataset": "future_tech_labeled_data",
+      "qualityScore": 60
+    }
+  },
+  {
+    "id": 10,
+    "weight": 310,
+    "color": "Piros",
+    "size": "Közepes",
+    "category": "Megfelelő",
+    "package": 2,
+    "metadata": {
+      "source": "pdf_import",
+      "dataset": "future_tech_labeled_data",
+      "qualityScore": 50
+    }
+  },
+  {
+    "id": 11,
+    "weight": 120,
+    "color": "Kék",
+    "size": "Kicsi",
+    "category": "Megfelelő",
+    "package": 3,
+    "metadata": {
+      "source": "pdf_import",
+      "dataset": "future_tech_labeled_data",
+      "qualityScore": 90
+    }
+  },
+  {
+    "id": 12,
+    "weight": 140,
+    "color": "Zöld",
+    "size": "Közepes",
+    "category": "Megfelelő",
+    "package": 3,
+    "metadata": {
+      "source": "pdf_import",
+      "dataset": "future_tech_labeled_data",
+      "qualityScore": 80
+    }
+  },
+  {
+    "id": 13,
+    "weight": 130,
+    "color": "Piros",
+    "size": "Nagy",
+    "category": "Selejt",
+    "package": 3,
+    "metadata": {
+      "source": "pdf_import",
+      "dataset": "future_tech_labeled_data",
+      "qualityScore": 40
+    }
+  },
+  {
+    "id": 14,
+    "weight": 160,
+    "color": "Kék",
+    "size": "Kicsi",
+    "category": "Megfelelő",
+    "package": 3,
+    "metadata": {
+      "source": "pdf_import",
+      "dataset": "future_tech_labeled_data",
+      "qualityScore": 85
+    }
+  },
+  {
+    "id": 15,
+    "weight": 150,
+    "color": "Zöld",
+    "size": "Közepes",
+    "category": "Selejt",
+    "package": 3,
+    "metadata": {
+      "source": "pdf_import",
+      "dataset": "future_tech_labeled_data",
+      "qualityScore": 45
+    }
+  },
+  {
+    "id": 16,
+    "weight": 210,
+    "color": "Piros",
+    "size": "Nagy",
+    "category": "Selejt",
+    "package": 4,
+    "metadata": {
+      "source": "pdf_import",
+      "dataset": "future_tech_labeled_data",
+      "qualityScore": 30
+    }
+  },
+  {
+    "id": 17,
+    "weight": 230,
+    "color": "Kék",
+    "size": "Nagy",
+    "category": "Megfelelő",
+    "package": 4,
+    "metadata": {
+      "source": "pdf_import",
+      "dataset": "future_tech_labeled_data",
+      "qualityScore": 65
+    }
+  },
+  {
+    "id": 18,
+    "weight": 220,
+    "color": "Zöld",
+    "size": "Közepes",
+    "category": "Megfelelő",
+    "package": 4,
+    "metadata": {
+      "source": "pdf_import",
+      "dataset": "future_tech_labeled_data",
+      "qualityScore": 70
+    }
+  },
+  {
+    "id": 19,
+    "weight": 240,
+    "color": "Piros",
+    "size": "Kicsi",
+    "category": "Selejt",
+    "package": 4,
+    "metadata": {
+      "source": "pdf_import",
+      "dataset": "future_tech_labeled_data",
+      "qualityScore": 25
+    }
+  },
+  {
+    "id": 20,
+    "weight": 200,
+    "color": "Kék",
+    "size": "Közepes",
+    "category": "Megfelelő",
+    "package": 4,
+    "metadata": {
+      "source": "pdf_import",
+      "dataset": "future_tech_labeled_data",
+      "qualityScore": 75
+    }
+  }
+]

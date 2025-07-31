@@ -1,0 +1,114 @@
+[
+  {
+    "id": 1,
+    "title": "Termelési előrejelzés",
+    "type": "regression",
+    "category": "production",
+    "difficulty": "közepes",
+    "cost": 10,
+    "reward": 5,
+    "icon": "📈",
+    "description": "A selejt-felismerő rendszer lenyűgöző, de most a jövőbe akarunk látni! Pontos előrejelzést kérünk a következő heti termelési darabszámra a kapacitástervezéshez. A siker kulcsa egy új, prediktív modell!",
+    "task": "Fektessetek be -10 Tanulási kreditet (TK) egy 'Regressziós modellbe', hogy teljesítsétek a kérést! Enélkül a projekt hatékonysága jelentősen csökken.",
+    "requirements": ["Regressziós modell"],
+    "benefits": [
+      "Kapacitástervezés optimalizálása",
+      "Termelési előrejelzés",
+      "Erőforrás-allokáció javítása"
+    ],
+    "businessImpact": {
+      "costSaving": "15-25%",
+      "efficiency": "Magas",
+      "riskReduction": "Közepes"
+    },
+    "metadata": {
+      "estimatedTime": "2-3 nap implementáció",
+      "complexity": "közepes",
+      "priority": "magas"
+    }
+  },
+  {
+    "id": 2,
+    "title": "Energiahatékonysági optimalizálás",
+    "type": "regression",
+    "category": "energy",
+    "difficulty": "nehéz",
+    "cost": 10,
+    "reward": 5,
+    "icon": "⚡",
+    "description": "A pénzügyi osztály riadót fújt a növekvő energiaköltségek miatt! Előrejelzést kell készítenetek a gépsorok várható energiafogyasztásáról, hogy optimalizálni tudjuk a felhasználást. Csak egy numerikus becslésre képes modell segíthet!",
+    "task": "A kihívás teljesítéséhez aktiváljátok a 'Regressziós modellt' -10 Tanulási kredit (TK) befektetésével! Enélkül a gyár működése veszteséges marad.",
+    "requirements": ["Regressziós modell"],
+    "benefits": [
+      "Energiaköltség csökkentés",
+      "Környezettudatos működés",
+      "Hatékonyság növelés"
+    ],
+    "businessImpact": {
+      "costSaving": "20-30%",
+      "efficiency": "Nagyon magas",
+      "riskReduction": "Magas"
+    },
+    "metadata": {
+      "estimatedTime": "3-5 nap implementáció",
+      "complexity": "magas",
+      "priority": "kritikus"
+    }
+  },
+  {
+    "id": 3,
+    "title": "Prediktív karbantartás",
+    "type": "regression",
+    "category": "maintenance",
+    "difficulty": "közepes",
+    "cost": 10,
+    "reward": 5,
+    "icon": "🔧",
+    "description": "Váratlan géphiba állította le a teljes 3-as gyártósort! A vezetés megelőző megoldást követel. Készítsetek egy modellt, ami előre jelzi a kulcsfontosságú alkatrészek hátralévő élettartamát órában kifejezve!",
+    "task": "Oldjátok fel a 'Regressziós modell' képességet -10 Tanulási kreditért (TK), hogy megelőzzétek a jövőbeli leállásokat! A gyár termelése és a hírnevünk múlik rajta.",
+    "requirements": ["Regressziós modell"],
+    "benefits": [
+      "Leállások megelőzése",
+      "Költségmegtakarítás",
+      "Megbízhatóság növelése"
+    ],
+    "businessImpact": {
+      "costSaving": "25-40%",
+      "efficiency": "Magas",
+      "riskReduction": "Nagyon magas"
+    },
+    "metadata": {
+      "estimatedTime": "1-2 nap implementáció",
+      "complexity": "közepes",
+      "priority": "sürgős"
+    }
+  },
+  {
+    "id": 4,
+    "title": "Készletgazdálkodási kihívás",
+    "type": "regression",
+    "category": "logistics",
+    "difficulty": "közepes",
+    "cost": 10,
+    "reward": 5,
+    "icon": "📦",
+    "description": "Az alapanyag-készlet kritikusan alacsony, ami a termelés leállásával fenyeget! A beszerzési osztálynak pontos előrejelzésre van szüksége a következő havi alapanyag-szükségletről. Az adatokban rejlik a megoldás!",
+    "task": "Fektessetek be -10 Tanulási kreditet (TK) egy 'Regressziós modellbe' a pontos becsléshez! Ha kifogytok az alapanyagból, a küldetés elbukik.",
+    "requirements": ["Regressziós modell"],
+    "benefits": [
+      "Optimális készletszint",
+      "Ellátási lánc stabilitás",
+      "Raktárköltség csökkentés"
+    ],
+    "businessImpact": {
+      "costSaving": "10-20%",
+      "efficiency": "Közepes",
+      "riskReduction": "Magas"
+    },
+    "metadata": {
+      "estimatedTime": "2-4 nap implementáció",
+      "complexity": "közepes",
+      "priority": "magas"
+    }
+  }
+]
