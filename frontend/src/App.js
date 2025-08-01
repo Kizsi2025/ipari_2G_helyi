@@ -93,31 +93,31 @@ const App = () => {
 
         <nav className="app-nav">
           <button 
-            className={`nav-btn \${currentView === 'dashboard' ? 'active' : ''}`}
+            className={`nav-btn ${currentView === 'dashboard' ? 'active' : ''}`}
             onClick={() => setCurrentView('dashboard')}
           >
             🏠 Irányítópult
           </button>
           <button 
-            className={`nav-btn \${currentView === 'models' ? 'active' : ''}`}
+            className={`nav-btn ${currentView === 'dashboard' ? 'active' : ''}`}
             onClick={() => setCurrentView('models')}
           >
             🧠 Modellek
           </button>
           <button 
-            className={`nav-btn \${currentView === 'events' ? 'active' : ''}`}
+            className={`nav-btn ${currentView === 'dashboard' ? 'active' : ''}`}
             onClick={() => setCurrentView('events')}
           >
             🎯 Küldetések
           </button>
           <button 
-            className={`nav-btn \${currentView === 'data' ? 'active' : ''}`}
+            className={`nav-btn ${currentView === 'dashboard' ? 'active' : ''}`}
             onClick={() => setCurrentView('data')}
           >
             📊 Adatelemzés
           </button>
           <button 
-            className={`nav-btn \${currentView === 'presentation' ? 'active' : ''}`}
+            className={`nav-btn ${currentView === 'dashboard' ? 'active' : ''}`}
             onClick={() => setCurrentView('presentation')}
           >
             🎤 Prezentáció
