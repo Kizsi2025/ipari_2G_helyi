@@ -1,0 +1,34 @@
+/* frontend/src/components/EventCards.css */
+.event-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.event-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: var(--shadow-card);
+  transition: box-shadow 0.3s ease;
+}
+
+.event-card.completed {
+  opacity: 0.6;
+  border-color: var(--accent-green);
+}
+
+.event-card:hover:not(.completed) {
+  box-shadow: var(--shadow-glow);
+}
+
+.event-card h3 {
+  margin-top: 0;
+  color: var(--accent-blue);
+}
+
+.btn {
+  margin-top: 12px;
+  width: 100%;
+}

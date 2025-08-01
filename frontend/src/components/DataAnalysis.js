@@ -150,7 +150,7 @@ const DataAnalysis = ({ gameState }) => {
                 <td className="status">
                   {product.category === 'Megfelelő' ? '✅' : '❌'}
                 </td>
-              </tr>
+              </motion.tr>
             ))}
           </tbody>
         </table>
